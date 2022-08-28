@@ -1,0 +1,22 @@
+kubernetes apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: parking
+spec:
+  selector:
+    matchLabels:
+      app: parking
+  template:
+    metadata:
+      labels:
+        app: parking
+    spec:
+      containers:
+      - name: parking
+        image: omaymadj/parking
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3000
